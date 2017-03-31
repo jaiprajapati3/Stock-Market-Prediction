@@ -1,7 +1,7 @@
 import csv
 
 
-def __create_feature__(__interval__, __symbol__, __stock_company_file__, stock_nasdaq_file__):
+def __create_feature__(__interval__, __symbol__, __stock_company_file__):
 
     __out_stock_company_file__ = "features/"+str(__interval__)+"_"+__symbol__+".csv"
 
@@ -60,49 +60,50 @@ def __create_feature__(__interval__, __symbol__, __stock_company_file__, stock_n
     for i in range(5, len(date_list)):
 
          count = 0
+         __diff__ = 0.5
 
          result = close_price_list[i - 1 - count] - close_price_list[i]
-         if -1 <= result <= 1:
+         if -__diff__ <= result <= __diff__:
              day1.append(0)
-         if result > 1:
+         if result > __diff__:
              day1.append(1)
-         if result < -1:
+         if result < -__diff__:
              day1.append(-1)
          count += 1
 
          result = close_price_list[i - 1 - count] - close_price_list[i]
-         if -1 <= result <= 1:
+         if -__diff__ <= result <= __diff__:
              day2.append(0)
-         if result > 1:
+         if result > __diff__:
              day2.append(1)
-         if result < -1:
+         if result < -__diff__:
              day2.append(-1)
          count += 1
 
          result = close_price_list[i - 1 - count] - close_price_list[i]
-         if -1 <= result <= 1:
+         if -__diff__ <= result <= __diff__:
              day3.append(0)
-         if result > 1:
+         if result > __diff__:
              day3.append(1)
-         if result < -1:
+         if result < -__diff__:
              day3.append(-1)
          count += 1
 
          result = close_price_list[i - 1 - count] - close_price_list[i]
-         if -1 <= result <= 1:
+         if -__diff__ <= result <= __diff__:
              day4.append(0)
-         if result > 1:
+         if result > __diff__:
              day4.append(1)
-         if result < -1:
+         if result < -__diff__:
              day4.append(-1)
          count += 1
 
          result = close_price_list[i - 1 - count] - close_price_list[i]
-         if -1 <= result <= 1:
+         if -__diff__ <= result <= __diff__:
              day5.append(0)
-         if result > 1:
+         if result > __diff__:
              day5.append(1)
-         if result < -1:
+         if result < -__diff__:
              day5.append(-1)
 
     del date_list[:5]

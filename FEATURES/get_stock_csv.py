@@ -1,7 +1,7 @@
 import csv
+import sys
 
 import requests
-import sys
 
 NASDAQ_FILE_NAME = "data/NASDAQ.csv"
 
@@ -9,7 +9,7 @@ NASDAQ_FILE_NAME = "data/NASDAQ.csv"
 
 
 def get_nasdaq_historical():
-    url = 'http://ichart.yahoo.com/table.csv?s=NDX'
+    url = 'http://ichart.yahoo.com/table.csv?s=NDAQ'
     r = requests.get(url, stream=True)
 
     if r.status_code != 400:
@@ -66,12 +66,15 @@ def set_prev_close(__file_name__):
                              'Close Price': close_price[i], 'Prev Close Price': close_price[i+1], 'Volume': volume[i]})
         return
 
+
+print('Fetching data...')
+
 if not get_nasdaq_historical():
     print('Google returned a 404, please re-run the script and')
     print('enter a valid stock quote from NASDAQ')
     sys.exit()
 
-symbol_list=["INTC", "FB", "TSLA", "NKE", "YHOO", "AMZN", "TCS", "MSFT"]
+symbol_list = ["AAPL", "INTC", "FB", "TSLA", "NKE", "YHOO", "AMZN", "TCS", "MSFT"]
 
 for s in symbol_list:
     if not get_historical(s):
@@ -79,4 +82,4 @@ for s in symbol_list:
         print('enter a valid stock quote from NASDAQ')
         sys.exit()
 
-
+print('Fetching data successfully.')
