@@ -60,7 +60,7 @@ def __create_feature__(__interval__, __symbol__, __stock_company_file__):
     for i in range(5, len(date_list)):
 
          count = 0
-         __diff__ = 0.5
+         __diff__ = 1.0
 
          result = close_price_list[i - 1 - count] - close_price_list[i]
          if -__diff__ <= result <= __diff__:
