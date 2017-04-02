@@ -11,11 +11,12 @@ def __svm_train__(__x__, __d_list__, __list__):
     _Y_ = __d_list__
     clf = svm.SVC()
     clf.fit(_X_, _Y_)
-    SVC(C=100.0, cache_size=200, class_weight=None, coef0=0.0,
-        decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
+    SVC(C=1000.0, cache_size=200, class_weight='auto', coef0=0.0,
+        decision_function_shape=None, degree=3, gamma=100, kernel='rbf',
         max_iter=-1, probability=False, random_state=None, shrinking=True,
         tol=0.001, verbose=False)
-    return (clf.predict([__list__])[0])
+
+    return clf.predict([__list__])[0]
 
 
 def __svm__(__symbol_name__, __interval__):
@@ -34,6 +35,7 @@ def __svm__(__symbol_name__, __interval__):
     day3_list = []
     day4_list = []
     day5_list = []
+    d_list = []
 
     __file_name__ = "F:/JAIMIN/sem_8/Stock Market Prediction/FEATURES/features/" + str(
         __interval__) + "_" + __symbol_name__ + ".csv"

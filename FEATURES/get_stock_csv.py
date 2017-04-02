@@ -74,7 +74,7 @@ if not get_nasdaq_historical():
     print('enter a valid stock quote from NASDAQ')
     sys.exit()
 
-symbol_list = ["AAPL", "INTC", "FB", "TSLA", "NKE", "YHOO", "AMZN", "TCS", "MSFT"]
+symbol_list = ["AAPL", "GOOGL", "INTC", "FB", "TSLA", "NFLX", "YHOO", "AMZN", "MSFT"]
 
 for s in symbol_list:
     if not get_historical(s):

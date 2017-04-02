@@ -153,7 +153,7 @@ def __create_feature__(__interval__, __symbol__, __stock_company_file__):
                     'Day2': day2[i],
                     'Day3': day3[i],
                     'Day4': day4[i],
-                    'Day5': day5[i]
+                    'Day5': day5[i],
                 }
             )
 
