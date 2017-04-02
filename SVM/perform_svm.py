@@ -35,7 +35,7 @@ def __svm__(__symbol_name__, __interval__):
     day3_list = []
     day4_list = []
     day5_list = []
-    d_list = []
+
 
     __file_name__ = "F:/JAIMIN/sem_8/Stock Market Prediction/FEATURES/features/" + str(
         __interval__) + "_" + __symbol_name__ + ".csv"
@@ -48,7 +48,7 @@ def __svm__(__symbol_name__, __interval__):
             close_list.append(float(row['Close Price']))
             prev_close_list.append(float(row['Prev Close Price']))
             volume_list.append(int(row['Volume']))
-            momentum_list.append(float(row['Momentum of Close Price']))
+            momentum_list.append(int(row['Momentum of Close Price']))
             volatility_list.append(float(row['Volatility of Close Price']))
 
             day1_list.append(int(row['Day1']))
@@ -58,9 +58,13 @@ def __svm__(__symbol_name__, __interval__):
             day5_list.append(int(row['Day5']))
 
     day_list = [day1_list, day2_list, day3_list, day4_list, day5_list]
+    # x = [list(a) for a in
+    #      zip(open_list, high_list, low_list, close_list, prev_close_list, volume_list, momentum_list,
+    #          volatility_list)]
+
     x = [list(a) for a in
-         zip(open_list, high_list, low_list, close_list, prev_close_list, volume_list, momentum_list,
-             volatility_list)]
+         zip(close_list, momentum_list, volatility_list)]
+
     _list_ = __generate_input__(__interval__, __symbol_name__)
 
     for _d_list_ in day_list:

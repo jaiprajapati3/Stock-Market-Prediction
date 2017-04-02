@@ -49,7 +49,7 @@ def __create_feature__(__interval__, __symbol__, __stock_company_file__):
         result = 0
         for j in range(i+1, i + __interval__ + 1):
             result = result + flag_list[j]
-        momentum_list.append(result / __interval__)
+        momentum_list.append(int(result / __interval__))
 
     day1 = []
     day2 = []
@@ -60,7 +60,7 @@ def __create_feature__(__interval__, __symbol__, __stock_company_file__):
     for i in range(5, len(date_list)):
 
          count = 0
-         __diff__ = 1.0
+         __diff__ = 0.50
 
          result = close_price_list[i - 1 - count] - close_price_list[i]
          if -__diff__ <= result <= __diff__:

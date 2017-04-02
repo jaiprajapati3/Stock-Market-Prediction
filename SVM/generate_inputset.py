@@ -54,12 +54,12 @@ def __generate_input__(__interval__, __symbol__):
         result = result + flag_list[j]
     momentum_list.append(result / __interval__)
 
-    _list_.append(open_price_list[0])
-    _list_.append(high_price_list[0])
-    _list_.append(low_price_list[0])
+    # _list_.append(open_price_list[0])
+    # _list_.append(high_price_list[0])
+    # _list_.append(low_price_list[0])
     _list_.append(close_price_list[0])
-    _list_.append(prev_close_list[0])
-    _list_.append(volume_list[0])
+    # _list_.append(prev_close_list[0])
+    # _list_.append(volume_list[0])
     _list_.append(momentum_list[0])
     _list_.append(volatility_list[0])
 
